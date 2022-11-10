@@ -18,13 +18,17 @@ namespace cicek
                 noronlar[i] = neuron;
             }
         }
-
+        
         public void EgitimYap(double ogrenmeKatsayisi)
         {
             for (int j = 0; j < Program.girdiler.GetLength(0); j++)
             {
-                //Console.WriteLine(j);
-                double[] doubles = new double[4] { Program.girdiler[j, 0], Program.girdiler[j, 1], Program.girdiler[j, 2], Program.girdiler[j, 3] };
+                double[] doubles = new double[4] { 
+                    Program.girdiler[j, 0], 
+                    Program.girdiler[j, 1], 
+                    Program.girdiler[j, 2], 
+                    Program.girdiler[j, 3]};
+
                 double n1 = noronlar[0].Hesaplama(doubles);
                 double n2 = noronlar[1].Hesaplama(doubles);
                 double n3 = noronlar[2].Hesaplama(doubles);
@@ -85,14 +89,10 @@ namespace cicek
 
                 double biggestNumber = Math.Max(Math.Max(n1, n2), n3);
 
-                //Console.WriteLine(" ");
-               // Console.WriteLine(Program.cicekler[j]);
-
                 if (Program.cicekler[j] == "Iris-setosa")
                 {
                     if (biggestNumber == n1)
                     {
-                        Console.WriteLine("Setosa doğru bildi.");
                         dogruBilinenSayi += 1;
                     }
 
@@ -101,7 +101,6 @@ namespace cicek
                 {
                     if (biggestNumber == n2)
                     {
-                        Console.WriteLine("Versicolor doğru bildi.");
                         dogruBilinenSayi += 1;
                     }
                 }
@@ -109,13 +108,12 @@ namespace cicek
                 {
                     if (biggestNumber == n3)
                     {
-                        Console.WriteLine("Virginica doğru bildi.");
                         dogruBilinenSayi += 1;
                     }
                 }
             }
 
-            Console.WriteLine("Doğruluk Değeri: " + (dogruBilinenSayi * 100 /150));
+            Console.WriteLine("Doğruluk Değeri: %" + (dogruBilinenSayi * 100 /150));
         }
 
         public void EpokDongusu(int counter, double katsayi)

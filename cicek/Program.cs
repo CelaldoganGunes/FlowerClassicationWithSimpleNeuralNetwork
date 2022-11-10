@@ -4,10 +4,12 @@
     {
         public static double[,] girdiler;
         public static string[] cicekler;
-        public static Random random = new Random(31);
+        public static Random random = new Random();
 
         static void Main(string[] args)
         {
+            #region Sayı Verileri
+
             girdiler = new double[150, 4] {
             {5.1,3.5,1.4,0.2},
             {4.9,3.0,1.4,0.2},
@@ -161,11 +163,20 @@
             {5.9,3.0,5.1,1.8},
             };
 
+            for (int i = 0; i < girdiler.GetLength(0); i++)
+            {
+                for (int j = 0; j < girdiler.GetLength(1); j++)
+                {
+                    girdiler[i, j] = girdiler[i, j] / 10;
+                }
+            }
+
+#endregion
+
+            #region Cicek Verileri
+
             cicekler = new string[150];
-            
-            Console.WriteLine("Hello, World!");
-
-
+         
             for (int i = 0; i < cicekler.GetLength(0); i++)
             {
                 if (i < 50)
@@ -182,35 +193,26 @@
                 }
             }
 
-            for (int i = 0; i< girdiler.GetLength(0); i++)
-            {
-                for (int j = 0; j < girdiler.GetLength(1); j++)
-                {
-                    girdiler[i, j] = girdiler[i, j] / 10;
-                    //Console.Write(girdiler[i, j] + " ");
-                }
-                //Console.Write(cicekler[i]);
-                //Console.WriteLine("");
-            }
-
+            #endregion
 
             NeuralNetwork network = new NeuralNetwork(3);
 
             
-            network.EpokDongusu(20, 0.005);
-            network.EpokDongusu(50, 0.005);
-            network.EpokDongusu(100, 0.005);
+            
+            //network.EpokDongusu(20, 0.005);
+            //network.EpokDongusu(50, 0.005);
+            //network.EpokDongusu(100, 0.005);
+            
 
-
-            network.EpokDongusu(20, 0.01);
+            //network.EpokDongusu(20, 0.01);
             network.EpokDongusu(50, 0.01);
-            network.EpokDongusu(100, 0.01);
+            //network.EpokDongusu(100, 0.01);
 
             
-            network.EpokDongusu(20, 0.025);
-            network.EpokDongusu(50, 0.025);
-            network.EpokDongusu(100, 0.025);
-
+            //network.EpokDongusu(20, 0.025);
+            //network.EpokDongusu(50, 0.025);
+            //network.EpokDongusu(100, 0.025);
+            
 
             network.DogrulukHesapla();
         }

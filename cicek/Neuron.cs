@@ -27,8 +27,10 @@ namespace cicek
 
         public double Hesaplama(double[] girdiler)
         {
-            double sonuc = girdiler[0] * agirliklar[0] + agirliklar[1] * agirliklar[1] + agirliklar[2] * agirliklar[2] + agirliklar[3] * agirliklar[3];
-            //Console.WriteLine(sonuc);
+            double sonuc = girdiler[0] * agirliklar[0] +
+                girdiler[1] * agirliklar[1] +
+                girdiler[2] * agirliklar[2] + 
+                girdiler[3] * agirliklar[3];
             return sonuc;
         }
 
